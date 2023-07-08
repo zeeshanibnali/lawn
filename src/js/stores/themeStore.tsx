@@ -22,7 +22,6 @@ const useThemeStore = create((set): ThemeStore => ({
   setTheme: (payload: ThemeStorePayload) => set((state: ThemeStore) => ({ ...state, ...payload })),
   setRandomTheme: () => set((state: ThemeStore) => {
     const data = randomizeColors();
-    console.log(data)
     return data;
   }),
 }))

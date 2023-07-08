@@ -7,11 +7,23 @@ import HomeStyles from "./sc";
 import useThemeStore, { ThemeStore } from "../stores/themeStore";
 import ControlPanel from "./components/controlPanel";
 import KeyFeatures from "./components/keyFeatures";
+import { useEffect } from "react";
 
 const Main = () => {
   const themeStore: ThemeStore = useThemeStore((state: any) => {
     return state;
   })
+  
+  useEffect(() => {
+    document.addEventListener('keydown', event => {
+      if (event.code === 'Space') {
+        event.preventDefault();
+        themeStore.setRandomTheme()
+      }
+    });
+
+
+  }, [])
   return (
     <HomeStyles.Container style={{
       backgroundColor: themeStore.secondary,

@@ -7,6 +7,7 @@ const ControlPanelStyles = {
         gap: "0.3em",
         justifyContent: "space-evenly",
         backgroundColor: "#000000",
+        borderTop: "0.2em solid white",
         width: "100%",
         position: "fixed",
         bottom: 0,
@@ -15,6 +16,7 @@ const ControlPanelStyles = {
 
     Aligner: styled("div")({
         display: "flex",
+        flex:1,
         gap: "0.3em",
         flexDirection: "column",
     }),
@@ -32,7 +34,7 @@ const ControlPanelStyles = {
         cursor: "pointer",
         borderRadius: "0.3em",
         ':hover': {
-            opacity: 0.9
+            // opacity: 0.9
         }
     }),
 

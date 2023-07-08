@@ -1,3 +1,4 @@
+import { screen, setScreen } from "../../main";
 import useThemeStore from "../../stores/themeStore";
 import NavBarStyles from "./sc"
 
@@ -15,9 +16,13 @@ const NavBar = () => {
             }}>
                 Home
             </NavBarStyles.MenuItem>
-            <NavBarStyles.MenuItem style={{
-                color: primary
-            }}>
+            <NavBarStyles.MenuItem
+                onClick={() => {
+                    setScreen("themes")
+                }}
+                style={{
+                    color: primary
+                }}>
                 Themes
             </NavBarStyles.MenuItem>
             <NavBarStyles.MenuItem style={{
