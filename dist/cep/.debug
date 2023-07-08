@@ -9,13 +9,4 @@
       <Host Name="FLPR" Port="8864"/>
     </HostList>
   </Extension>
-  <Extension Id="com.lawn.cep.about">
-    <HostList>
-      <Host Name="AEFT" Port="8865"/>
-      <Host Name="PPRO" Port="8866"/>
-      <Host Name="ILST" Port="8867"/>
-      <Host Name="PHXS" Port="8868"/>
-      <Host Name="FLPR" Port="8869"/>
-    </HostList>
-  </Extension>
 </ExtensionList>

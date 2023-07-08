@@ -2,14 +2,23 @@ import "./main.scss";
 
 import NavBar from "../components/navBar";
 import IntroText from "./components/introText";
+import Grid from "./components/grid";
+import HomeStyles from "./sc";
+import useThemeStore, { ThemeStore } from "../stores/themeStore";
 
 const Main = () => {
+  const themeStore: ThemeStore = useThemeStore((state: any) => {
+    return state;
+  })
   return (
-    <div>
+    <HomeStyles.Container style={{
+      backgroundColor: themeStore.secondary,
+      color: themeStore.primary
+    }}>
       <NavBar />
+      <Grid />
       <IntroText />
-
-    </div>
+    </HomeStyles.Container>
   );
 };
 

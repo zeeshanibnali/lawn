@@ -5,6 +5,7 @@ const IntroTextStyles = {
         padding: "1em",
     }),
     Header: styled("h2")({
+        textAlign: "center"
     }),
 }
 
