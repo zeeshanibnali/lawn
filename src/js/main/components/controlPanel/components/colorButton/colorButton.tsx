@@ -64,7 +64,6 @@ const ColorButton = ({ label, color, backgroundColor, displayText }: any) => {
                     onClickCapture={() => {
                         setShowInput(false)
                     }}>
-
                     <AiOutlineClose style={{
                         position: "absolute",
                         top: 3,

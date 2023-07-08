@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import useThemeStore from "../../../stores/themeStore";
 import IntroTextStyles from "./sc"
+import useUserStore, { UserStore } from "../../../stores/userStore";
 
 const IntroText = () => {
+    const userStore: UserStore = useUserStore((state: any) => {
+        return state;
+    })
     const primButton: string = useThemeStore((state: any) => {
         return state.primButton;
     })
@@ -12,7 +16,9 @@ const IntroText = () => {
     const secondary: string = useThemeStore((state: any) => {
         return state.secondary;
     })
+
     return <IntroTextStyles.Container>
+        <IntroTextStyles.Welcome>Welcome{userStore.id != null ? ", " + userStore.name : ""}</IntroTextStyles.Welcome>
         <IntroTextStyles.Header>
             Visualize Your <span style={{
                 background: `linear-gradient(120deg, ${primButton}, ${accent})`,

@@ -7,12 +7,15 @@ const NavBar = () => {
     const primary: string = useThemeStore((state: any) => {
         return state.primary;
     })
+    const primButton: string = useThemeStore((state: any) => {
+        return state.primButton;
+    })
     const screenStore: ScreenStore = useScreenStore((state: any) => {
         return state;
     })
     return <NavBarStyles.Container>
         <NavBarStyles.Title style={{
-            color: primary
+            color: primButton
         }}>Lawn</NavBarStyles.Title>
         <NavBarStyles.Menu>
             <NavBarStyles.MenuItem
@@ -22,6 +25,9 @@ const NavBar = () => {
 
                 style={{
                     color: primary,
+                    padding: "0.2em",
+                    borderBottom: screenStore.currentScreen === "home" ? `3px solid ${primButton}` : undefined
+
                 }}>
                 Home
             </NavBarStyles.MenuItem>
@@ -30,7 +36,9 @@ const NavBar = () => {
                     screenStore.setCurrentScreen("themes")
                 }}
                 style={{
-                    color: primary
+                    color: primary,
+                    padding: "0.2em",
+                    borderBottom: screenStore.currentScreen === "themes" ? `3px solid ${primButton}` : undefined
                 }}>
                 Themes
             </NavBarStyles.MenuItem>
@@ -40,7 +48,9 @@ const NavBar = () => {
                 }}
 
                 style={{
-                    color: primary
+                    color: primary,
+                    padding: "0.2em",
+                    borderBottom: screenStore.currentScreen === "themes" ? `3px solid ${primButton}` : undefined
                 }}>
                 About
             </NavBarStyles.MenuItem>
