@@ -18,7 +18,7 @@ export type ThemeStorePayload = {
   accent?: string
 }
 const useThemeStore = create((set): ThemeStore => ({
-  primary: "#1d3557", secondary: "#f1faee", primButton: "#e63946", secButton: "#a8dadc", accent: "#457b9d",
+  primary: "#344e41", secondary: "#dad7cd", primButton: "#3a5a40", secButton: "#b5c49c", accent: "#588157",
   setTheme: (payload: ThemeStorePayload) => set((state: ThemeStore) => ({ ...state, ...payload })),
   setRandomTheme: () => set((state: ThemeStore) => {
     const data = randomizeColors();

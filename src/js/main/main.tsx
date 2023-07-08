@@ -5,6 +5,8 @@ import IntroText from "./components/introText";
 import Grid from "./components/grid";
 import HomeStyles from "./sc";
 import useThemeStore, { ThemeStore } from "../stores/themeStore";
+import ControlPanel from "./components/controlPanel";
+import KeyFeatures from "./components/keyFeatures";
 
 const Main = () => {
   const themeStore: ThemeStore = useThemeStore((state: any) => {
@@ -16,11 +18,10 @@ const Main = () => {
       color: themeStore.primary
     }}>
       <NavBar />
-      <div onClick={() => {
-        themeStore.setRandomTheme()
-      }}>Randomize</div>
-      <Grid />
       <IntroText />
+      <Grid />
+      <KeyFeatures />
+      <ControlPanel />
     </HomeStyles.Container>
   );
 };
