@@ -16,7 +16,8 @@ const NavBarStyles = {
         gap: "1em"
     }),
     MenuItem: styled("li")({
-        listStyle: "none"
+        listStyle: "none",
+        cursor: "pointer"
     }),
 
 }

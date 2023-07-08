@@ -14,16 +14,6 @@ const Main = () => {
     return state;
   })
   
-  useEffect(() => {
-    document.addEventListener('keydown', event => {
-      if (event.code === 'Space') {
-        event.preventDefault();
-        themeStore.setRandomTheme()
-      }
-    });
-
-
-  }, [])
   return (
     <HomeStyles.Container style={{
       backgroundColor: themeStore.secondary,

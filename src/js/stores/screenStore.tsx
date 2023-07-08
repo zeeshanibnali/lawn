@@ -9,7 +9,7 @@ export type ScreenPayload = {
     currentScreen: "home" | "themes"
 }
 const useScreenStore = create((set): ScreenStore => ({
-    currentScreen: "home",
+    currentScreen: "themes",
     setCurrentScreen: (payload: ScreenPayload) => set((state: ScreenStore) => ({ currentScreen: payload })),
 }))
 

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useThemeStore, { ThemeStore } from "../../../stores/themeStore";
 import ColorButton from "./components/colorButton/colorButton";
 import ControlPanelStyles from "./sc"
@@ -12,6 +13,17 @@ const ControlPanel = () => {
         primary, secondary, primButton, secButton, accent
     } = themeStore
 
+
+    useEffect(() => {
+        document.addEventListener('keydown', event => {
+            if (event.code === 'Space') {
+                event.preventDefault();
+                themeStore.setRandomTheme()
+            }
+        });
+
+
+    }, [])
     return <ControlPanelStyles.Container>
         <ControlPanelStyles.Aligner style={{}}>
             <ColorButton label="primary" color={primary} backgroundColor={secondary} displayText="Text" />
@@ -40,7 +52,7 @@ const ControlPanel = () => {
                 color: "black",
                 fontWeight: "bold",
                 flex: 1,
-            }}>(Space)<TbArrowsRandom style={{ fontSize: "2em", margin: "0.4em" }} /></ControlPanelStyles.Button>
+            }}>(Press Spacebar)<TbArrowsRandom style={{ fontSize: "2em", margin: "0.4em" }} /></ControlPanelStyles.Button>
         </ControlPanelStyles.Aligner>
     </ControlPanelStyles.Container>
 }

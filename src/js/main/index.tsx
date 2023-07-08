@@ -19,7 +19,7 @@ const App = () => {
     return state;
   })
   return (
-    screenStore.currentScreen === "a" ?
+    screenStore.currentScreen === "home" ?
       <Main /> : <Themes />
   )
 }
