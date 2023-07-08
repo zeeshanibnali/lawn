@@ -218,3 +218,4 @@ const colorSets = [
     },
 
 ];
+export default colorSets;

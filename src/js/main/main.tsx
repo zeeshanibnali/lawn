@@ -16,6 +16,9 @@ const Main = () => {
       color: themeStore.primary
     }}>
       <NavBar />
+      <div onClick={() => {
+        themeStore.setRandomTheme()
+      }}>Randomize</div>
       <Grid />
       <IntroText />
     </HomeStyles.Container>
