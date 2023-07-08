@@ -20,7 +20,6 @@ const ThemeListStyles = {
     ThemeBlockTopContainer: styled("div")({
         display: "flex",
         justifyContent: "space-between",
-
     }),
 
     ThemeBlockSubContainer: styled("div")({

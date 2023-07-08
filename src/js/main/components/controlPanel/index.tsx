@@ -3,12 +3,18 @@ import useThemeStore, { ThemeStore } from "../../../stores/themeStore";
 import ColorButton from "./components/colorButton/colorButton";
 import ControlPanelStyles from "./sc"
 import { TbArrowsRandom, TbDownload } from 'react-icons/tb';
+import { VscSymbolColor } from 'react-icons/vsc';
+import useUserStore, { UserStore } from "../../../stores/userStore";
+
 
 const ControlPanel = () => {
     const themeStore: ThemeStore = useThemeStore((state: any) => {
         return state;
     })
 
+    const userStore: UserStore = useUserStore((state: any) => {
+        return state;
+    })
     const {
         primary, secondary, primButton, secButton, accent
     } = themeStore
@@ -35,16 +41,51 @@ const ControlPanel = () => {
         </ControlPanelStyles.Aligner>
         <ControlPanelStyles.Aligner style={{}}>
             <ColorButton label="accent" color={primary} backgroundColor={accent} displayText="Accent" />
-        </ControlPanelStyles.Aligner>
-        {/* Export */}
-        <ControlPanelStyles.Aligner>
-            {/* <ControlPanelStyles.Button onClick={() => {
-                themeStore.setRandomTheme()
+            <ControlPanelStyles.Button onClick={() => {
+
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                let data = {
+                    id: userStore.id,
+                    primary: themeStore.primary,
+                    secondary: themeStore.secondary,
+                    primButton: themeStore.primButton,
+                    secButton: themeStore.secButton,
+                    accent: themeStore.accent,
+                }
+                let raw = JSON.stringify(data);
+
+                var requestOptions: any = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: "follow",
+                };
+                fetch("http://localhost:4000/themes/add", requestOptions).then((res) => res.json()).then((data) => {
+                    console.log(data)
+                    if (data.message) {
+                        return;
+                    } else {
+                        let x = themeStore.fetchedThemes;
+                        x.push({
+                            colors: [primary, secondary, primButton, secButton, accent],
+                            id: data.id
+                        })
+                        themeStore.setTheme({
+                            fetchedThemes: x
+                        })
+                    }
+                })
             }} style={{
                 backgroundColor: "white",
                 color: "black",
-            }}>Export <TbDownload style={{ fontSize: "1.3em", marginLeft: "0.4em" }} /></ControlPanelStyles.Button> */}
-            {/* Randomize */}
+            }}>Add Theme <VscSymbolColor style={{ fontSize: "1.3em", marginLeft: "0.4em" }} /></ControlPanelStyles.Button>
+
+        </ControlPanelStyles.Aligner>
+        {/* Export */}
+        <ControlPanelStyles.Aligner>
+            {/* {/* Randomize */}
             <ControlPanelStyles.Button onClick={() => {
                 themeStore.setRandomTheme()
             }} style={{

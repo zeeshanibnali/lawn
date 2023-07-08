@@ -1,9 +1,11 @@
 import useScreenStore, { ScreenStore } from "../stores/screenStore";
 import useThemeStore from "../stores/themeStore";
+import useUserStore, { UserStore } from "../stores/userStore";
 import AuthStyles from "./sc";
 import { useState } from "react";
 
 const Register = () => {
+    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const themeStore = useThemeStore((state: any) => {
@@ -12,12 +14,43 @@ const Register = () => {
     const screenStore: ScreenStore = useScreenStore((state: any) => {
         return state;
     })
-    const handleAction = () => {
-        console.log("Handling")
-        console.log("email", email)
-        console.log("password", password)
-        screenStore.setCurrentScreen("home")
 
+    const userStore: UserStore = useUserStore((state: any) => {
+        return state;
+    })
+    const handleAction = () => {
+        if (name === "" || email === "" || password === "") {
+            return;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        let data = {
+            name: "Zeeshan Ali",
+            email: "zee@gmail.com",
+            password: "asdasd",
+        }
+        let raw = JSON.stringify(data);
+
+        var requestOptions: any = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+        fetch("http://localhost:4000/register", requestOptions).then((res) => res.json()).then((data) => {
+            console.log(data)
+            if (data.message) {
+                return;
+            } else {
+                userStore.setUser({
+                    id: data.id,
+                    name: data.name,
+                    email: data.email
+                })
+                screenStore.setCurrentScreen("home")
+            }
+        })
     }
     return (
         <AuthStyles.Container>
@@ -28,6 +61,15 @@ const Register = () => {
                 <AuthStyles.TagLine style={{
                     color: themeStore.primButton
                 }}>The Designers Wardobe</AuthStyles.TagLine>
+                <AuthStyles.FormGroup>
+                    <AuthStyles.Label>
+                        Name
+                    </AuthStyles.Label>
+                    <AuthStyles.Input type="text" style={{
+                        color: themeStore.primButton
+                    }} onChange={(e) => setName(e.target.value)} value={name} />
+                </AuthStyles.FormGroup>
+
                 <AuthStyles.FormGroup>
                     <AuthStyles.Label>
                         Email

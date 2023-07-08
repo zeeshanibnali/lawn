@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 const AuthStyles = {
     Container: styled("div")({
+        backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -10,6 +11,7 @@ const AuthStyles = {
     }),
 
     SubContainer: styled("div")({
+        backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

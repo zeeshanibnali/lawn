@@ -1,5 +1,6 @@
 import useScreenStore, { ScreenStore } from "../stores/screenStore";
 import useThemeStore from "../stores/themeStore";
+import useUserStore, { UserStore } from "../stores/userStore";
 import AuthStyles from "./sc";
 import { useState } from "react";
 
@@ -12,11 +13,43 @@ const Login = () => {
     const screenStore: ScreenStore = useScreenStore((state: any) => {
         return state;
     })
+
+    const userStore: UserStore = useUserStore((state: any) => {
+        return state;
+    })
     const handleAction = () => {
-        console.log("Handling")
-        console.log("email", email)
-        console.log("password", password)
-        screenStore.setCurrentScreen("home")
+        if (email === "" || password === "") {
+            return;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        let data = {
+            email: "zee@gmail.com",
+            password: "asdasd",
+        }
+        let raw = JSON.stringify(data);
+
+        var requestOptions: any = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+        fetch("http://localhost:4000/login", requestOptions).then((res) => res.json()).then((data) => {
+            console.log(data)
+            if (data.message) {
+                return;
+            } else {
+
+                userStore.setUser({
+                    id: data.id,
+                    name: data.name,
+                    email: data.email
+                })
+                screenStore.setCurrentScreen("home")
+            }
+        })
     }
     return (
         <AuthStyles.Container>

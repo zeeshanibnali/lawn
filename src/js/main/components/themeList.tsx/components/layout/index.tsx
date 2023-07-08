@@ -2,7 +2,7 @@ import ThemeListStyles from "../../sc";
 import LayoutStyles from "./sc";
 import { BiExpandVertical } from "react-icons/bi"
 import { BsArrowRight } from "react-icons/bs"
-
+import { MdDelete } from "react-icons/md"
 import { useState } from "react"
 import useThemeStore, { ThemeStore } from "../../../../../stores/themeStore";
 const Layout = ({ title, count, colorSets }: any) => {
@@ -61,6 +61,41 @@ const Layout = ({ title, count, colorSets }: any) => {
                                             }} />
                                         })
                                     }
+                                    <div onClick={() => {
+
+                                        var myHeaders = new Headers();
+                                        myHeaders.append("Content-Type", "application/json");
+
+                                        let data = {
+                                            id: colorSet.id
+                                        }
+                                        let raw = JSON.stringify(data);
+
+                                        var requestOptions: any = {
+                                            method: "POST",
+                                            headers: myHeaders,
+                                            body: raw,
+                                            redirect: "follow",
+                                        };
+                                        fetch("http://localhost:4000/themes/delete", requestOptions).then((res) => res.json()).then((data) => {
+
+                                            if (data.message) {
+                                                return;
+                                            } else {
+                                                // Successfully deletd
+                                                let x = themeStore.fetchedThemes;
+                                                x.splice(id, 1)
+                                                themeStore.setTheme({
+
+                                                })
+                                            }
+                                        })
+                                    }} style={{
+                                        position: "absolute",
+                                        right: "-10%"
+                                    }}>{title === "Personal" && <MdDelete style={{
+                                        fontSize: "1.5em"
+                                    }} />}</div>
                                 </ThemeListStyles.ThemeBlockSubContainer>
                             </ThemeListStyles.ThemeBlock>
                         })
