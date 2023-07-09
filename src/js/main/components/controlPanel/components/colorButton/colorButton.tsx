@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import useThemeStore, { ThemeStore } from "../../../../../stores/themeStore";
 import ControlPanelStyles from "../../sc";
-import getBrightness from "../../../../../utils/getBrightness";
-import { getContrastRatio } from "../../../../../utils/colorOps";
 import ColorButtonStyles from "./sc";
 import { GoCopy } from 'react-icons/go';
 import { AiOutlineClose } from 'react-icons/ai';
