@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { randomizeColors } from '../utils/randomColorSet'
+import { randomizeColors } from '../utils/randomizeColors'
 export type ThemeStore = {
   primary: string
   secondary: string

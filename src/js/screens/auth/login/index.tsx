@@ -1,7 +1,7 @@
-import useScreenStore, { ScreenStore } from "../stores/screenStore";
-import useThemeStore from "../stores/themeStore";
-import useUserStore, { UserStore } from "../stores/userStore";
-import AuthStyles from "./sc";
+import useScreenStore, { ScreenStore } from "../../../stores/screenStore";
+import useThemeStore from "../../../stores/themeStore";
+import useUserStore, { UserStore } from "../../../stores/userStore";
+import AuthStyles from "../sc";
 import { useState } from "react";
 
 const Login = () => {

@@ -4,9 +4,9 @@ import { initBolt } from "../lib/utils/bolt";
 import "../index.scss";
 import Main from "./main";
 import useScreenStore, { ScreenStore } from "../stores/screenStore";
-import Themes from "../themes/main";
-import Register from "../auth/Register";
-import Login from "../auth/Login";
+import Themes from "../screens/themes/main";
+import Register from "../screens/auth/register";
+import Login from "../screens/auth/login";
 import About from "../screens/about";
 import useUserStore, { UserStore } from "../stores/userStore";
 
