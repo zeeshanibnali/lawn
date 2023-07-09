@@ -1,4 +1,4 @@
-import useScreenStore, { ScreenStore } from "../../../../../../stores/screenStore";
+import useScreenStore, { ScreenStore } from "../../../../../../../stores/screenStore";
 
 const AuthText = () => {
     const screenStore: ScreenStore = useScreenStore((state: any) => {

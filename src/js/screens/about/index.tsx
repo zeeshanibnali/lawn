@@ -5,9 +5,11 @@ import AboutStyles from "./sc";
 import ControlPanel from "../../main/components/controlPanel";
 
 const About = () => {
+  
   const themeStore: ThemeStore = useThemeStore((state: any) => {
     return state;
   });
+
   return (
     <AboutStyles.Container
       style={{

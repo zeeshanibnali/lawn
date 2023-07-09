@@ -1,9 +1,7 @@
 import useThemeStore, { ThemeStore } from "../../../stores/themeStore";
 import GridStyles from "./sc"
-// SVG code taken is from https://realtimecolors.com/
 
-
-// colors: ['#ededed', '#222546', '#29658a', '#474866', '#d1d2d6'],
+// SVG code taken is from realtimecolors
 
 const Grid = () => {
     const themeStore: ThemeStore = useThemeStore((state: any) => {
@@ -29,13 +27,11 @@ const Grid = () => {
             <rect rx="10" ry="10" x="242" y="404" width="169" height="85" fill={secButton} stroke={secondary} stroke-width="8" />
             <rect rx="10" ry="10" x="75" y="72" width="336" height="333" fill={primButton} stroke={secondary} stroke-width="8" />
             <rect rx="10" ry="10" x="76" y="405" width="166" height="165" fill={primary} stroke={secondary} stroke-width="8" />
-            {/* Opacity check */}
             <rect rx="10" ry="10" opacity="1" x="411" y="489" width="202" height="126" fill={accent} stroke={secondary} stroke-width="8" />
             <rect rx="10" ry="10" x="613" y="489" width="35" height="151" fill={primButton} stroke={secondary} stroke-width="8" />
             {/* Creates some  problem */}
             {/* <rect rx="10" ry="10" x="411" y="238" width="103" height="167" fill={secondary} stroke={secondary} stroke-width="8" /> */}
             {/* <rect rx="10" ry="10" x="514" y="238" width="99" height="167" fill={secondary} stroke={secondary} stroke-width="8" /> */}
-
             <rect rx="10" ry="10" x="613.206" y="4" width="34.7942" height="484.655" fill={secondary} stroke={secondary} stroke-width="8" />
             <rect rx="10" ry="10" x="159.827" y="4" width="250.853" height="67.1507" fill={secondary} stroke={secondary} stroke-width="8" />
             <rect rx="10" ry="10" x="5" y="72" width="71" height="167" fill={secondary} stroke={secondary} stroke-width="8" />

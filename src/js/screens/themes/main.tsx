@@ -1,7 +1,7 @@
 import NavBar from "../../components/navBar";
 import ControlPanel from "../../main/components/controlPanel";
-import ThemeList from "../../main/components/themeList.tsx";
 import useThemeStore, { ThemeStore } from "../../stores/themeStore";
+import ThemeList from "./components/themeList.tsx";
 
 const Themes = () => {
   const themeStore: ThemeStore = useThemeStore((state: any) => {

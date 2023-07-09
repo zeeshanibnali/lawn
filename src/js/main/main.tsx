@@ -7,7 +7,6 @@ import HomeStyles from "./sc";
 import useThemeStore, { ThemeStore } from "../stores/themeStore";
 import ControlPanel from "./components/controlPanel";
 import KeyFeatures from "./components/keyFeatures";
-import { useEffect } from "react";
 
 const Main = () => {
   const themeStore: ThemeStore = useThemeStore((state: any) => {

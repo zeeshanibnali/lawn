@@ -4,7 +4,7 @@ import { BiExpandVertical } from "react-icons/bi"
 import { BsArrowRight } from "react-icons/bs"
 import { MdDelete } from "react-icons/md"
 import { useState } from "react"
-import useThemeStore, { ThemeStore } from "../../../../../stores/themeStore";
+import useThemeStore, { ThemeStore } from "../../../../../../stores/themeStore";
 const Layout = ({ title, count, colorSets }: any) => {
     const [showData, setShowData] = useState(false)
 

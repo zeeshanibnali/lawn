@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useThemeStore from "../../../stores/themeStore";
 import IntroTextStyles from "./sc"
 import useUserStore, { UserStore } from "../../../stores/userStore";

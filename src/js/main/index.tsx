@@ -1,19 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { initBolt } from "../lib/utils/bolt";
 import "../index.scss";
-import Main from "./main";
-import useScreenStore, { ScreenStore } from "../stores/screenStore";
-import Themes from "../screens/themes/main";
-import Register from "../screens/auth/register";
-import Login from "../screens/auth/login";
-import About from "../screens/about";
-import useUserStore, { UserStore } from "../stores/userStore";
 
-export let screen: "/" | "themes" = "/";
-export const setScreen = (payload: "/" | "themes") => {
-  screen = payload;
-};
+import Main from "./main";
+import { About, Login, Register, Themes } from "../screens";
+
+import useUserStore, { UserStore } from "../stores/userStore";
+import useScreenStore, { ScreenStore } from "../stores/screenStore";
 
 const App = () => {
   const userStore: UserStore = useUserStore((state: any) => {
@@ -22,7 +15,8 @@ const App = () => {
   const screenStore: ScreenStore = useScreenStore((state: any) => {
     return state;
   });
-  React.useEffect(() => {
+
+  useEffect(() => {
     let user = window.localStorage.getItem("user");
     if (user) {
       userStore.setUser(JSON.parse(user));
@@ -31,7 +25,14 @@ const App = () => {
       screenStore.setCurrentScreen("login");
     }
   }, []);
+
   switch (screenStore.currentScreen) {
+    case "register": {
+      return <Register />;
+    }
+    case "login": {
+      return <Login />;
+    }
     case "home": {
       return <Main />;
     }
@@ -40,12 +41,6 @@ const App = () => {
     }
     case "about": {
       return <About />;
-    }
-    case "register": {
-      return <Register />;
-    }
-    case "login": {
-      return <Login />;
     }
   }
 };

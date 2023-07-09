@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import colorSets from "../../../data/colorSets";
-import useUserStore, { UserStore } from "../../../stores/userStore";
 import Layout from "./components/layout";
 import Auth from "./components/layout/authText";
 import ThemeListStyles from "./sc";
-import useThemeStore, { ThemeStore } from "../../../stores/themeStore";
+import colorSets from "../../../../data/colorSets";
+import useUserStore, { UserStore } from "../../../../stores/userStore";
+import useThemeStore, { ThemeStore } from "../../../../stores/themeStore";
 
 let inspired: any = [];
 let curated: any = [];

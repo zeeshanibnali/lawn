@@ -30,7 +30,7 @@ const Register = () => {
     let data = {
       name: name,
       email: email,
-      //   password: password,
+      password: password,
     };
     let raw = JSON.stringify(data);
 

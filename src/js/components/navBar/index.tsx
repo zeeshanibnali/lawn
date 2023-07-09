@@ -1,4 +1,3 @@
-import { screen, setScreen } from "../../main";
 import useScreenStore, { ScreenStore } from "../../stores/screenStore";
 import useThemeStore from "../../stores/themeStore";
 import useUserStore, { UserStore } from "../../stores/userStore";
@@ -8,14 +7,17 @@ const NavBar = () => {
   const userStore: UserStore = useUserStore((state: any) => {
     return state;
   });
+
+  const screenStore: ScreenStore = useScreenStore((state: any) => {
+    return state;
+  });
+
   const primary: string = useThemeStore((state: any) => {
     return state.primary;
   });
+
   const primButton: string = useThemeStore((state: any) => {
     return state.primButton;
-  });
-  const screenStore: ScreenStore = useScreenStore((state: any) => {
-    return state;
   });
   return (
     <NavBarStyles.Container>
