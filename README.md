@@ -2,6 +2,8 @@
 
 Introducing, a cutting-edge real-time color generator application that unlocks your creativity and brings a world of vibrant hues to your fingertips. With its intuitive interface and powerful algorithms, Lawn revolutionizes the way you explore, discover, and create captivating color palettes.
 
+See showcase folder to view the app screenshots.
+
 
 ### Dev Requirements
 
