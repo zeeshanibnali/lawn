@@ -58,13 +58,3 @@ Note: Open the browser with 600 /500 dimensions in order to develop correctly. T
 - Bundles your zxp and specified assets to a zip archive in the `dist/zip` folder
 
 ---
-
-## Config
-
-Update your CEP build and package settings in `cep.config.ts` safely typed
-
-Start building your app in `src/js/main/index(.tsx or .vue or .svelte)`
-
-Write ExtendScript code in `src/jsx/main.ts`
-
----
